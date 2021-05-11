@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @maintainer.name %>
+</p>
+
+<p>
+  <strong>References:</strong>
+  <%= @maintainer.references %>
+</p>
+
+<%= link_to 'Edit', edit_maintainer_path(@maintainer) %> |
+<%= link_to 'Back', maintainers_path %>
