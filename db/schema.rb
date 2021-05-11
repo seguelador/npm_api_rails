@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_11_233253) do
+ActiveRecord::Schema.define(version: 2021_05_11_233752) do
+
+  create_table "contributors", force: :cascade do |t|
+    t.string "name"
+    t.integer "repository_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["repository_id"], name: "index_contributors_on_repository_id"
+  end
 
   create_table "repositories", force: :cascade do |t|
     t.string "name"
@@ -22,4 +30,5 @@ ActiveRecord::Schema.define(version: 2021_05_11_233253) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "contributors", "repositories"
 end
